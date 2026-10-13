@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "lint": "eslint src",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "start": "nodemon ./src/index.js"
   },
   "dependencies": {
     "bcrypt": "^6.0.0",
