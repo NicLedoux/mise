@@ -54,7 +54,7 @@ export function Recipe({
           <li key={`${step}-${index}`}>{step}</li>
         ))}
       </ol>
-
+      <h4>Tags</h4>
       <p className='recipeTags'>
         {tags.map((tag) => (
           <span className='chip' key={tag}>
