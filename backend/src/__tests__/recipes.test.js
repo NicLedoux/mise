@@ -21,6 +21,8 @@ beforeAll(async () => {
   sampleRecipes = [
     {
       title: 'Vermont Cheddar Ale Soup',
+      imageURL:
+        'https://graftonvillagecheese.com/wp-content/uploads/Recipes/GraftonCheddarAleSoup_GraftonInn-456x456.png',
       author: testUser._id,
       ingredients: [
         '1 garlic bulb, roasted',
@@ -49,6 +51,8 @@ beforeAll(async () => {
     },
     {
       title: 'Formaggio Quattro Risotto',
+      imageURL:
+        'https://blog.giallozafferano.it/cucinaplus/wp-content/uploads/2018/02/1517817861942.jpg',
       author: testUser._id,
       ingredients: [
         '1/4 cup butter',
@@ -76,6 +80,8 @@ beforeAll(async () => {
     },
     {
       title: 'Neapolitan-style Pizza Dough',
+      imageURL:
+        'https://www.seriouseats.com/thmb/ACyF6kv3V4qAo_H9E-98X5jhuDc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20211115-OONI-PIZZA-ARMENIAN-ANDREW-JANJIGIAN-23-5447ecc61b12450d9a09f38cca67c19c.jpg',
       author: testUser._id,
       ingredients: [
         '1/4 teaspoon active dry yeast',
