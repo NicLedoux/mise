@@ -47,8 +47,8 @@ export async function listRecipesByAuthor(authorUsername, options) {
 export async function listRecipesByTag(tags, options) {
   return await listRecipes({ tags }, options)
 }
-export async function getRecipeById(RecipeId) {
-  return await Recipe.findById(RecipeId)
+export async function getRecipeById(recipeId) {
+  return await Recipe.findById(recipeId)
 }
 export async function updateRecipe(
   userId,
@@ -83,6 +83,6 @@ export async function updateRecipe(
     { new: true },
   )
 }
-export async function deleteRecipe(userId, RecipeId) {
-  return await Recipe.deleteOne({ _id: RecipeId, author: userId })
+export async function deleteRecipe(userId, recipeId) {
+  return await Recipe.deleteOne({ _id: recipeId, author: userId })
 }

@@ -11,7 +11,7 @@ import {
 import { requireAuth } from '../middleware/jwt.js'
 
 export function recipesRoutes(app) {
-  app.get('/api/v1/Recipes', async (req, res) => {
+  app.get('/api/v1/recipes', async (req, res) => {
     const { sortBy, sortOrder, author, tag } = req.query
     const options = { sortBy, sortOrder }
     try {
@@ -31,7 +31,7 @@ export function recipesRoutes(app) {
       return res.status(500).end()
     }
   })
-  app.get('/api/v1/Recipes/:id', async (req, res) => {
+  app.get('/api/v1/recipes/:id', async (req, res) => {
     const { id } = req.params
     try {
       const recipe = await getRecipeById(id)
@@ -42,7 +42,7 @@ export function recipesRoutes(app) {
       return res.status(500).end()
     }
   })
-  app.post('/api/v1/Recipes', requireAuth, async (req, res) => {
+  app.post('/api/v1/recipes', requireAuth, async (req, res) => {
     try {
       const recipe = await createRecipe(req.auth.sub, req.body)
       return res.json(recipe)
@@ -51,7 +51,7 @@ export function recipesRoutes(app) {
       return res.status(500).end()
     }
   })
-  app.patch('/api/v1/Recipes/:id', requireAuth, async (req, res) => {
+  app.patch('/api/v1/recipes/:id', requireAuth, async (req, res) => {
     try {
       const recipe = await updateRecipe(req.auth.sub, req.params.id, req.body)
       return res.json(recipe)
@@ -60,7 +60,7 @@ export function recipesRoutes(app) {
       return res.status(500).end()
     }
   })
-  app.delete('/api/v1/Recipes/:id', requireAuth, async (req, res) => {
+  app.delete('/api/v1/recipes/:id', requireAuth, async (req, res) => {
     try {
       const { deletedCount } = await deleteRecipe(req.auth.sub, req.params.id)
       if (deletedCount === 0) return res.sendStatus(404)
