@@ -5,6 +5,7 @@ export async function createRecipe(
   userId,
   {
     title,
+    imageURL,
     description,
     ingredients,
     steps,
@@ -16,6 +17,7 @@ export async function createRecipe(
 ) {
   const recipe = new Recipe({
     title,
+    imageURL,
     author: userId,
     description,
     ingredients,
@@ -53,6 +55,7 @@ export async function updateRecipe(
   recipeId,
   {
     title,
+    imageURL,
     description,
     ingredients,
     steps,
@@ -67,6 +70,7 @@ export async function updateRecipe(
     {
       $set: {
         title,
+        imageURL,
         description,
         ingredients,
         steps,

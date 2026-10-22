@@ -3,6 +3,7 @@ import { User } from './User.jsx'
 
 export function Recipe({
   title,
+  imageURL,
   description,
   ingredients = [],
   steps = [],
@@ -20,6 +21,15 @@ export function Recipe({
   return (
     <article className='recipe-card'>
       <h3>{title}</h3>
+      {imageURL && (
+        <img
+          className='recipe-image'
+          src={imageURL}
+          alt={title}
+          loading='lazy'
+        />
+      )}
+
       <div className='description'>{description && <p>{description}</p>}</div>
 
       {author && (
@@ -57,6 +67,7 @@ export function Recipe({
 }
 Recipe.propTypes = {
   title: PropTypes.string.isRequired,
+  imageURL: PropTypes.string,
   description: PropTypes.string,
   ingredients: PropTypes.arrayOf(PropTypes.string).isRequired,
   steps: PropTypes.arrayOf(PropTypes.string).isRequired,

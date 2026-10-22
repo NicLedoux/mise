@@ -5,6 +5,7 @@ import { createRecipe } from '../api/recipes.js'
 
 export function CreateRecipe() {
   const [title, setTitle] = useState('')
+  const [imageURL, setImageURL] = useState('')
   const [token] = useAuth()
   const [description, setDescription] = useState('')
   const [ingredientsText, setIngredientsText] = useState('')
@@ -20,6 +21,7 @@ export function CreateRecipe() {
     mutationFn: () =>
       createRecipe(token, {
         title,
+        imageURL,
         description,
         ingredients: ingredientsText.split('\n').filter(Boolean),
         steps: stepsText.split('\n').filter(Boolean),
@@ -51,9 +53,22 @@ export function CreateRecipe() {
           id='create-title'
           value={title}
           onChange={(e) => setTitle(e.target.value)}
+          placeholder='Recipe Title'
         />
       </div>
       <br />
+      <div>
+        <label htmlFor='imageURL'>Image URL: </label>
+        <input
+          type='url'
+          name='imageURL'
+          id='imageURL'
+          value={imageURL}
+          onChange={(e) => setImageURL(e.target.value)}
+          placeholder='https://example.com/photo.jpg'
+        />
+      </div>
+
       <div>
         <label htmlFor='create-description'>Description: </label>
         <input
@@ -62,6 +77,7 @@ export function CreateRecipe() {
           id='create-description'
           value={description}
           onChange={(e) => setDescription(e.target.value)}
+          placeholder='Recipe Description'
         />
       </div>
       <br />
@@ -74,6 +90,7 @@ export function CreateRecipe() {
           rows={6}
           value={ingredientsText}
           onChange={(e) => setIngredientsText(e.target.value)}
+          placeholder='List of ingredients'
         />
       </div>
       <br />
@@ -86,6 +103,7 @@ export function CreateRecipe() {
           rows={6}
           value={stepsText}
           onChange={(e) => setStepsText(e.target.value)}
+          placeholder='Recipe Steps'
         />
       </div>
       <br />
@@ -97,6 +115,7 @@ export function CreateRecipe() {
           id='create-prep'
           value={prepTime}
           onChange={(e) => setPrepTime(e.target.value)}
+          placeholder='30'
         />
       </div>
       <br />
@@ -108,6 +127,7 @@ export function CreateRecipe() {
           id='create-cook'
           value={cookTime}
           onChange={(e) => setCookTime(e.target.value)}
+          placeholder='30'
         />
       </div>
       <br />
@@ -119,6 +139,7 @@ export function CreateRecipe() {
           id='create-servings'
           value={servings}
           onChange={(e) => setServings(e.target.value)}
+          placeholder='15'
         />
       </div>
       <br />
@@ -130,6 +151,7 @@ export function CreateRecipe() {
           id='create-tags'
           value={tagsText}
           onChange={(e) => setTagsText(e.target.value)}
+          placeholder='Recipe Tags'
         />
       </div>
       <br />
