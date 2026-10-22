@@ -17,7 +17,7 @@ export function Recipes() {
   })
   const recipes = recipesQuery.data ?? []
   return (
-    <div style={{ padding: 8 }}>
+    <main>
       <Header />
       <hr />
       <CreateRecipe />
@@ -38,6 +38,6 @@ export function Recipes() {
       />
       <hr />
       <RecipeList recipes={recipes} />
-    </div>
+    </main>
   )
 }

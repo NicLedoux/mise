@@ -21,7 +21,7 @@ export function RecipeSorting({
           </option>
         ))}
       </select>
-      {' / '}
+
       <label htmlFor='sortOrder'>Sort Order: </label>
       <select
         name='sortOrder'
