@@ -33,7 +33,7 @@ export function CreateRecipe() {
           .map((t) => t.trim())
           .filter(Boolean),
       }),
-    onSuccess: () => queryClient.invalidateQueries(['recipes']),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ['recipes'] }),
   })
 
   const handleSubmit = (e) => {
@@ -82,7 +82,9 @@ export function CreateRecipe() {
       </div>
       <br />
       <div>
-        <label htmlFor='create-ingredients'>Ingredients: </label>
+        <label htmlFor='create-ingredients'>
+          Ingredients: (One ingredient per line)
+        </label>
         <textarea
           type='text'
           name='create-ingredients'
@@ -95,7 +97,7 @@ export function CreateRecipe() {
       </div>
       <br />
       <div>
-        <label htmlFor='create-steps'>Steps: </label>
+        <label htmlFor='create-steps'>Steps (One step per line):</label>
         <textarea
           type='text'
           name='create-steps'

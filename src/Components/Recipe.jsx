@@ -14,9 +14,9 @@ export function Recipe({
   author,
 }) {
   const recipeInfo = [
-    prepTime > 0 && 'Prep {prepTime} min',
-    cookTime > 0 && 'Cook {cookTime} min',
-    servings > 0 && 'Servings {servings}',
+    prepTime > 0 && `Prep ${prepTime} min`,
+    cookTime > 0 && `Cook ${cookTime} min`,
+    servings > 0 && `Servings ${servings}`,
   ].filter(Boolean)
   return (
     <article className='recipe-card'>
@@ -40,7 +40,7 @@ export function Recipe({
       )}
 
       {recipeInfo.length > 0 && (
-        <p className='recipeInfo'>{recipeInfo.join('•')}</p>
+        <p className='recipeInfo'>{recipeInfo.join(' • ')}</p>
       )}
       <h4>Ingredients</h4>
       <ul>
